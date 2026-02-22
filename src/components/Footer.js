@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -16,11 +17,27 @@ const Footer = () => {
           <div className="col-md-4 mb-4">
             <h6 className="fw-bold">Quick Links</h6>
             <ul className="list-unstyled">
-              <li><a href="#" className="text-light text-decoration-none">Home</a></li>
-              <li><a href="#" className="text-light text-decoration-none">How it Works</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Features</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Support</a></li>
-            </ul>
+  <li>
+    <Link to="/" className="text-light text-decoration-none">
+      Home
+    </Link>
+  </li>
+  <li>
+    <Link to="/how-it-works" className="text-light text-decoration-none">
+      How it Works
+    </Link>
+  </li>
+  <li>
+    <Link to="/features" className="text-light text-decoration-none">
+      Features
+    </Link>
+  </li>
+  <li>
+    <Link to="/support" className="text-light text-decoration-none">
+      Support
+    </Link>
+  </li>
+</ul>
           </div>
 
           {/* Column 3 */}
@@ -29,10 +46,33 @@ const Footer = () => {
             <p>Email: support@evana.com</p>
             <p>Phone: +91 98765 43210</p>
             <div>
-              <a href="#" className="text-light me-3"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="text-light me-3"><i className="bi bi-instagram"></i></a>
-              <a href="#" className="text-light"><i className="bi bi-twitter-x"></i></a>
-            </div>
+  <a
+    href="https://facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-light me-3"
+  >
+    <i className="bi bi-facebook"></i>
+  </a>
+
+  <a
+    href="https://instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-light me-3"
+  >
+    <i className="bi bi-instagram"></i>
+  </a>
+
+  <a
+    href="https://twitter.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-light"
+  >
+    <i className="bi bi-twitter-x"></i>
+  </a>
+</div>
           </div>
 
         </div>

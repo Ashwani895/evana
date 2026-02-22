@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -9,11 +10,9 @@ const About = () => {
           {/* Enhanced Image Side */}
           <div className="col-lg-6 mb-4 mb-lg-0">
             <div className="position-relative p-3">
-              {/* Decorative elements */}
               <div className="position-absolute top-0 start-0 bg-primary" style={{width: "30%", height: "30px"}}></div>
               <div className="position-absolute top-0 start-0 bg-primary" style={{width: "30px", height: "30%"}}></div>
               
-              {/* Main image */}
               <img
                 src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2VkZGluZyUyMGV2ZW50fGVufDB8fDB8fHww"
                 alt="Event planning"
@@ -21,7 +20,6 @@ const About = () => {
                 style={{ objectFit: "cover", height: "350px" }}
               />
               
-              {/* Secondary smaller image */}
               <img
                 src="https://images.unsplash.com/photo-1505236858219-8359eb29e329"
                 alt="Event details"
@@ -36,22 +34,22 @@ const About = () => {
                 }}
               />
               
-              {/* Experience badge */}
               <div className="position-absolute bottom-0 start-0 translate-middle-y bg-primary text-white px-4 py-2 rounded-end">
                 <h5 className="mb-0">10+ Years Experience</h5>
               </div>
               
-              {/* Decorative element bottom */}
               <div className="position-absolute bottom-0 end-0 bg-primary opacity-75" style={{width: "20%", height: "5px", right: "20%"}}></div>
             </div>
           </div>
           
-          {/* Text Side - Keeping this the same */}
+          {/* Text Side */}
           <div className="col-lg-6 ps-lg-5">
             <div className="mb-3">
               <span className="badge bg-primary px-3 py-2">About Us</span>
             </div>
-            <h2 className="display-5 fw-bold mb-4">Transforming Ideas into <span className="text-primary">Unforgettable Events</span></h2>
+            <h2 className="display-5 fw-bold mb-4">
+              Transforming Ideas into <span className="text-primary">Unforgettable Events</span>
+            </h2>
             
             <p className="lead mb-4">
               At <strong className="text-primary">Evana</strong>, we believe every event should be
@@ -119,7 +117,12 @@ const About = () => {
             </div>
             
             <div className="mt-5">
-              <a href="#services" className="btn btn-primary btn-lg rounded-pill px-4">Explore Our Services</a>
+              <Link 
+                to="/#services" 
+                className="btn btn-primary btn-lg rounded-pill px-4"
+              >
+                Explore Our Services
+              </Link>
             </div>
           </div>
         </div>

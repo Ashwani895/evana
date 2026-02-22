@@ -115,7 +115,7 @@ const EventManagerDashboard = () => {
         : [];
 
       const response = await axios.post(
-        "http://evana-spk5.onrender/api/eventworks",
+        "http://evana-spk5.onrender.com/api/eventworks",
         {
           category: newWork.category,
           title: newWork.title,

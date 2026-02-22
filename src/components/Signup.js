@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -45,18 +45,15 @@ const Signup = () => {
       console.log(data);
 
       if (res.ok) {
-  // show success briefly
-  const alertEl = document.getElementById("successAlert");
-  if (alertEl) {
-    alertEl.classList.remove("d-none");
-  }
+        const alertEl = document.getElementById("successAlert");
+        if (alertEl) {
+          alertEl.classList.remove("d-none");
+        }
 
-  // redirect after 1.5 seconds
-  setTimeout(() => {
-    navigate("/login");
-  }, 1500);
-} else {
-        // Show error alert
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
+      } else {
         document.getElementById("errorMessage").innerText = data.message || "Signup failed";
         document.getElementById("errorAlert").classList.remove("d-none");
         setTimeout(() => {
@@ -80,13 +77,10 @@ const Signup = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-10 col-lg-8 col-xl-6">
-            {/* Card with shadow */}
             <div className="card border-0 shadow-lg rounded-4 overflow-hidden">
-              {/* Colored top accent */}
               <div className="bg-primary p-1"></div>
               
               <div className="card-body p-4 p-lg-5">
-                {/* Form header */}
                 <div className="text-center mb-4">
                   <div className="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 p-3 rounded-circle mb-3">
                     <i className="bi bi-person-plus text-primary fs-3"></i>
@@ -95,7 +89,6 @@ const Signup = () => {
                   <p className="text-muted">Join Evana to start planning your events</p>
                 </div>
                 
-                {/* Alert boxes */}
                 <div className="alert alert-success d-none" role="alert" id="successAlert">
                   <i className="bi bi-check-circle-fill me-2"></i>
                   Account created successfully! Redirecting...
@@ -106,9 +99,7 @@ const Signup = () => {
                   <span id="errorMessage">Signup failed</span>
                 </div>
                 
-                {/* Signup form */}
                 <form onSubmit={handleSubmit}>
-                  {/* Name field */}
                   <div className="form-floating mb-3">
                     <input
                       type="text"
@@ -125,8 +116,7 @@ const Signup = () => {
                       Full Name
                     </label>
                   </div>
-                  
-                  {/* Email field */}
+
                   <div className="form-floating mb-3">
                     <input
                       type="email"
@@ -143,8 +133,7 @@ const Signup = () => {
                       Email Address
                     </label>
                   </div>
-                  
-                  {/* Password field */}
+
                   <div className="form-floating mb-3 position-relative">
                     <input
                       type={passwordVisible ? "text" : "password"}
@@ -169,8 +158,7 @@ const Signup = () => {
                       <i className={`bi ${passwordVisible ? "bi-eye-slash" : "bi-eye"}`}></i>
                     </button>
                   </div>
-                  
-                  {/* Confirm Password field */}
+
                   <div className="form-floating mb-4">
                     <input
                       type="password"
@@ -187,8 +175,7 @@ const Signup = () => {
                       Confirm Password
                     </label>
                   </div>
-                  
-                  {/* Terms checkbox */}
+
                   <div className="form-check mb-4">
                     <input 
                       className="form-check-input" 
@@ -197,65 +184,57 @@ const Signup = () => {
                       required
                     />
                     <label className="form-check-label text-muted" htmlFor="termsCheck">
-                      I agree to the <a href="#" className="text-decoration-none">Terms of Service</a> and <a href="#" className="text-decoration-none">Privacy Policy</a>
+                      I agree to the{" "}
+                      <Link to="#" className="text-decoration-none">Terms of Service</Link>{" "}
+                      and{" "}
+                      <Link to="#" className="text-decoration-none">Privacy Policy</Link>
                     </label>
                   </div>
-                  
-                  {/* Submit button */}
+
                   <div className="d-grid">
                     <button 
                       type="submit" 
                       className="btn btn-primary btn-lg rounded-pill py-3"
                       disabled={loading}
                     >
-                      {loading ? (
-                        <>
-                          <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                          Creating Account...
-                        </>
-                      ) : (
-                        <>
-                          <i className="bi bi-person-plus me-2"></i>
-                          Sign Up
-                        </>
-                      )}
+                      {loading ? "Creating Account..." : "Sign Up"}
                     </button>
                   </div>
                 </form>
-                
-                {/* Social signup options */}
+
                 <div className="my-4 position-relative">
                   <hr/>
                   <div className="position-absolute top-50 start-50 translate-middle bg-white px-3">
                     <span className="text-muted">or sign up with</span>
                   </div>
                 </div>
-                
+
                 <div className="row g-2 mb-4">
                   <div className="col-6">
-                    <a href="#" className="btn btn-outline-secondary w-100 rounded-pill">
+                    <Link to="#" className="btn btn-outline-secondary w-100 rounded-pill">
                       <i className="bi bi-google me-2"></i>
                       Google
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-6">
-                    <a href="#" className="btn btn-outline-secondary w-100 rounded-pill">
+                    <Link to="#" className="btn btn-outline-secondary w-100 rounded-pill">
                       <i className="bi bi-facebook me-2"></i>
                       Facebook
-                    </a>
+                    </Link>
                   </div>
                 </div>
-                
-                {/* Login link */}
+
                 <div className="text-center mt-4">
                   <p className="mb-0 text-muted">
-                    Already have an account? <a href="/login" className="text-decoration-none fw-semibold">Log In</a>
+                    Already have an account?{" "}
+                    <Link to="/login" className="text-decoration-none fw-semibold">
+                      Log In
+                    </Link>
                   </p>
                 </div>
               </div>
             </div>
-            
-            {/* Security note */}
+
             <div className="text-center mt-3">
               <small className="text-muted d-flex align-items-center justify-content-center">
                 <i className="bi bi-shield-lock me-1"></i>
