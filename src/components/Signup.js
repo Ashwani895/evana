@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Signup = () => {
   
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -27,7 +29,7 @@ const Signup = () => {
     setLoading(true);
     
     try {
-      const res = await fetch("http://localhost:5001/api/auth/register", {
+      const res = await fetch("https://evana-spk5.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,12 +45,17 @@ const Signup = () => {
       console.log(data);
 
       if (res.ok) {
-        // Show success alert
-        document.getElementById("successAlert").classList.remove("d-none");
-        setTimeout(() => {
-          document.getElementById("successAlert").classList.add("d-none");
-        }, 5000);
-      } else {
+  // show success briefly
+  const alertEl = document.getElementById("successAlert");
+  if (alertEl) {
+    alertEl.classList.remove("d-none");
+  }
+
+  // redirect after 1.5 seconds
+  setTimeout(() => {
+    navigate("/login");
+  }, 1500);
+} else {
         // Show error alert
         document.getElementById("errorMessage").innerText = data.message || "Signup failed";
         document.getElementById("errorAlert").classList.remove("d-none");

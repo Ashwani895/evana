@@ -61,7 +61,7 @@ const EventManagerDashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5001/api/eventworks", {
+      const response = await axios.get("https://evana-spk5.onrender.com/api/eventworks", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,7 +115,7 @@ const EventManagerDashboard = () => {
         : [];
 
       const response = await axios.post(
-        "http://localhost:5001/api/eventworks",
+        "http://evana-spk5.onrender/api/eventworks",
         {
           category: newWork.category,
           title: newWork.title,

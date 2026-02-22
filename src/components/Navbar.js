@@ -29,7 +29,7 @@ const Navbar = ({ onRoleUpdate }) => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5001/api/event-manager/status", {
+        const res = await axios.get("https://evana-spk5.onrender.com/api/event-manager/status", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

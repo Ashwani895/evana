@@ -86,7 +86,7 @@ const RegisterOrganizer = ({ onRoleUpdate }) => {
     setMessage({ text: '', type: '' });
 
     // Fixed API URL (matches server mounting: /api/event-manager)
-    const API_URL = 'http://localhost:5001/api/event-manager/register';
+    const API_URL = 'https://evana-spk5.onrender.com/api/event-manager/register';
 
     try {
       const token = localStorage.getItem('token');

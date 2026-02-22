@@ -16,7 +16,7 @@ const YourWork = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await axios.get("http://localhost:5001/api/eventworks", {
+      const response = await axios.get("https://evana-spk5.onrender.com/api/eventworks", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

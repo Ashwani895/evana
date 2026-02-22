@@ -18,7 +18,7 @@ const HirePage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5001/api/event-manager", {
+      const res = await axios.get("http://evana-spk5.onrender.com/api/event-manager", {
         headers: { Authorization: `Bearer ${token}` }
       });
 
